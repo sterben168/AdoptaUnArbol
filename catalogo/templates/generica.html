@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<!-- Plantilla genérica -->
+<html lang="en">
+<head>
+  
+  {% block title %}<title>Adopte un Árbol</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+  
+  <!-- Add additional CSS in static file -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  
+</head>
+
+<body>
+
+{% load static %}
+  <div class="imgbox" >
+    <img  class ="center-fit" src="{% static 'Head_image.png' %}"/> 
+  </div>
+
+  <div class="container-fluid">
+
+    <div class="row">
+      
+      {% block sidebar %}
+      <ul class="sidebar-nav">
+
+          <div class="col-sm-4" style="background-color:palegreen;">
+          <li><a href="{% url 'index' %}">Inicio</a></li>
+	  </div>
+
+          <div class="col-sm-4" style="background-color:lightgreen;">
+          <li><a href="{% url 'arboles' %}">Árboles</a></li>
+	  </div>
+
+          <div class="col-sm-4" style="background-color:palegreen;">
+          <li><a href="{% url 'personas' %}">Colaboradores</a></li>
+	  </div>
+      </ul>
+     {% endblock %}
+      <div class="col-sm-2">
+      </div>
+
+     <div class= content>
+          <div class="col-sm-10 ">
+	
+  <!-- esta sección es donde irá el contenido 
+       específico de cada página que utilice la
+       plantilla genérica -->
+          {% block content %}{% endblock %}
+	  </div>
+     </div>
+    </div>
+
+  </div>
+</body>
+</html>

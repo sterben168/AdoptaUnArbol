@@ -1,0 +1,23 @@
+<!--Se extiene la  plantilla genérica -->
+{% extends "generica.html" %}
+
+{% block content %}
+<h1>¡Adopte un árbol!</h1>
+
+  <p>La iniciativa <em>Adopte un árbol</em>
+  es una propuesta que se origina en la comunidad de Rancho Quemado, en el corazón de la
+  Península de Osa.</p>
+
+  <p> Dicha iniciativa permite a los padres o madres adoptivos de un árbol
+  ver el desarrollo y crecimiento del mismo, así como a su vez
+  colaborar con la reforestación que se da en la zona. </p>
+
+<h2> Estadísticas de la página</h2>
+
+  <p>Actualmente estas son las personas colaboradoras, así como también la cantidad de árboles:</p>
+  <ul>
+    <li><strong>Personas colaboradoras:</strong> {{ num_personas }}</li>
+    <li><strong>Arboles:</strong> {{ num_arboles }}</li>
+  </ul>
+
+{% endblock %}

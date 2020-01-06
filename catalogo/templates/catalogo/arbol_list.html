@@ -1,0 +1,35 @@
+<!-- se extiende la plantilla genérica-->
+{% extends "generica.html" %}
+
+
+<!--se llena la sección de contenido 
+con los árboles disponibles -->
+{% block content %}
+    <h1>Lista de árboles</h1>
+
+
+    <!--si existe una lista de árboles-->
+    {% if arbol_list %}
+    <ul>
+
+
+      <!--se recorre la lista de todos los árboles 
+      y para cada uno se obtiene su url
+      su nombre y su persona colaboradora-->
+      {% for arbol in arbol_list %}
+      <li>
+        <a  href="{{ arbol.get_absolute_url }}">{{ arbol.especie }}</a> ({{arbol.persona}})
+      </li>
+      {% endfor %}
+
+    </ul>
+
+
+    <!--si no existe una lista de árboles-->
+    {% else %}
+      <p>No hay árboles disponibles para mostrar.</p>
+    {% endif %}       
+{% endblock %}
+
+
+<!---->

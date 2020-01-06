@@ -1,0 +1,19 @@
+<!-- se extiende la plantilla genérica-->
+{% extends "generica.html" %}
+
+
+<!--se llena la sección de contenido 
+con la información específica del árbol -->
+{% block content %}
+  <h1>Especie: {{ arbol.especie }}</h1>
+
+
+<!--se indica el dueño del árbol, junto con su url-->
+  <p><strong>Dueño:</strong> <a href="{{ arbol.persona.get_absolute_url }}">{{ arbol.persona }}</a></p> 
+   
+ 
+<!--se indica la ubicación del árbol-->
+  <p><strong>Localización:</strong> {{ arbol.localizacion }}</p> 
+
+  
+{% endblock %}

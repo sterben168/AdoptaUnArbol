@@ -1,0 +1,22 @@
+<!-- se extiende la plantilla genérica-->
+{% extends "generica.html" %}
+
+
+<!--se llena la sección de contenido 
+con la información de la persona colaboradora -->
+{% block content %}
+  <h1>{{ persona.nombre }} {{ persona.apellidos }}</h1>
+
+  <p><strong>Arboles:</strong> 
+
+
+     <!--se recorre la lista que contiene todos los 
+     árboles de una persona y se obtiene su url-->
+     {% for arbol in persona.arbol_set.all %}
+      <li>
+        <a  href="{{ arbol.get_absolute_url }}">{{ arbol.especie }}</a> 
+      </li>
+{% endfor %}
+
+  
+{% endblock %}

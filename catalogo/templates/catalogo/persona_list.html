@@ -1,0 +1,33 @@
+<!-- se extiende la plantilla genérica-->
+{% extends "generica.html" %}
+
+
+<!--se llena la sección de contenido 
+con las personas colaboradoras -->
+{% block content %}
+    <h1>Personas Colaboradoras</h1>
+
+    <!--si existe una lista de personas-->
+    {% if persona_list %}
+    <ul>
+
+      <!--se recorre la lista de todas las personas
+      y para cada una se obtiene su url
+      su nombre y su apellido-->
+      {% for persona in persona_list %}
+      <li>
+        <a  href="{{ persona.get_absolute_url }}">{{ persona.nombre }} {{persona.apellidos}} </a>
+      </li>
+      {% endfor %}
+
+    </ul>
+   
+ 
+    <!--si no existe una lista de personas-->
+    {% else %}
+      <p>No existen personas.</p>
+    {% endif %}       
+{% endblock %}
+
+
+<!---->
